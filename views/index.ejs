@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Extractor Dashboard</title>
+</head>
+<body>
+  <h2>Resume Data</h2>
+  <% if (resume) { %>
+    <p><strong>Name:</strong> <%= resume.name %></p>
+    <p><strong>Age:</strong> <%= resume.age %></p>
+    <p><strong>Skills:</strong> <%= resume.skills.join(', ') %></p>
+  <% } else { %>
+    <p>No resume data available. Upload a resume below.</p>
+  <% } %>
+  <h3>Upload Resume</h3>
+  <form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file" required /><br/>
+    <button type="submit">Upload & Extract</button>
+  </form>
+  <br/>
+  <a href="/login">Logout</a>
+</body>
+</html>
